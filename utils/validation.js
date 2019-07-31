@@ -9,7 +9,7 @@ module.exports=function(rules){
 
                 var errorList=[];
                 Object.values(errors).forEach(function(error){
-                    errorList.push(error)
+                    errorList.push(error[0])
                 });
 
                 return res.status(422).json({
