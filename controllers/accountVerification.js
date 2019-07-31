@@ -10,7 +10,7 @@ module.exports= function(req,res,next){
         unset:{
             verificationToken:''
         }
-    },function(err,result){
+    },function(err,user){
         if(err) return res.status(200).json({"message":"Something went wrong","data":{}})
 
         if(!user) return res.status(422).json({"message":"Link Invalid or Expired","data":{}})
