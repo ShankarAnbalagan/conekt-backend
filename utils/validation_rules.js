@@ -4,5 +4,8 @@ module.exports={
         'email':'required|email',
         'password':'required|min:8'
 
+    },
+    forgotPassword:{
+        "email":"required|email"
     }
 };
