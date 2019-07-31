@@ -8,4 +8,6 @@ module.exports = function(req,res,next){
         if(err) res.status(200).json({"message": "Something went wrong", "data":{}});
         else res.status(200).json({"message": "User Successfully added", "data":{}});
     });
+
+    
 }
