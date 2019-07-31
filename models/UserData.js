@@ -30,4 +30,10 @@ UserDataSchema.pre('save', function(next){
     });
 });
 
+UserDataSchema.methods.comparePassword=function(userPassword,cb){
+    bcrypt.compare(userPassword,this.password,function(err,isMatch){
+        return cb(err,isMatch);
+    });
+}
+
 module.exports=mongoose.model('UserData',UserDataSchema);
