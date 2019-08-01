@@ -5,7 +5,8 @@ module.exports={
         'password':'required|min:8'
     },
     login:{
-        'email':'required|email',
+        'userName':'required_without:email|alpha_num',
+        'email':'required_without:userName|email',
         'password':'required'
 
     },

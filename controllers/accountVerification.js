@@ -15,11 +15,11 @@ module.exports = function (req, res, next) {
                 verificationToken: ''
             }
         }, function (err, user) {
-            if (err) return res.status(200).json({ "message": "Something went wrong", "data": {} });
+            if (err) console.log("Verification error----------->",err);;
 
             if (!user.nModified) return res.status(422).json({ "message": "Link Invalid or Expired", "data": {} });
 
-            res.status(200).json({ "message": "Account Verified Successfully", "data": "" })
+            res.status(200).json({ "message": "Account Verified Successfully", "data": {} })
         });
 
 

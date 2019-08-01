@@ -9,7 +9,7 @@ module.exports = function(req,res,next){
         if(err) console.log(err);
         else{
             if(!user){
-                res.status(200).json({message:"User does not exist",data:{}});
+                res.status(422).json({message:"User does not exist",data:{}});
             }
             else{
                 if(user.passwordResetToken){
