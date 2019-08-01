@@ -10,7 +10,8 @@ module.exports=function(req,res,next){
     },function(err,user){
         if(err) return res.status(200).json({"message":"something went wrong","data":""});
 
-        if(!user){
+        if(!user.nModified){
+            return res.status(422).json({"message":"Link Expied or Invalid","data":""});
 
         }
 
