@@ -7,5 +7,9 @@ module.exports={
     login:{
         'email':'required|email',
         'password':'required'
+
+    },
+    forgotPassword:{
+        "email":"required|email"
     }
 };

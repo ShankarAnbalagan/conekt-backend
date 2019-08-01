@@ -27,7 +27,7 @@ module.exports = function(req,res,next){
                     else 
                     {
                         res.status(200).json({"message": "User Successfully added", "data":{}});
-                        sendMail(req.body.verificationToken,req.body.email);
+                        sendMail.verification(req.body.verificationToken,req.body.email);
                     }
                 });
             }

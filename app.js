@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
+var cors=require('cors');
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true},function(err,data)
     else console.log("Database connected");
 });
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
