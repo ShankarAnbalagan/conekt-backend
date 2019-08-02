@@ -4,8 +4,9 @@ var {registerUser,
     loginUser,
     forgotPassword,
     resetPassword,
-    logoutUser}=require('./../controllers/index');
-var {validateRequest,validation_rules}=require('./../utils/index');
+    logoutUser,
+    profile}=require('./../controllers/index');
+var {validateRequest,validation_rules,authenticator}=require('./../utils/index');
 var router = express.Router();
 
 /* POST Add new user */
@@ -19,5 +20,7 @@ router.post('/forgot-password',validateRequest(validation_rules.forgotPassword),
 router.get('/reset-password/:code',resetPassword);
 
 router.get('/logout',logoutUser);
+
+router.get('/profile',authenticator,profile);
 
 module.exports = router;
