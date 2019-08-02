@@ -3,7 +3,8 @@ var {registerUser,
     accountVerification,
     loginUser,
     forgotPassword,
-    resetPassword}=require('./../controllers/index');
+    resetPassword,
+    logoutUser}=require('./../controllers/index');
 var {validateRequest,validation_rules}=require('./../utils/index');
 var router = express.Router();
 
@@ -16,5 +17,7 @@ router.post('/login',validateRequest(validation_rules.login),loginUser);
 router.post('/forgot-password',validateRequest(validation_rules.forgotPassword),forgotPassword);
 
 router.get('/reset-password/:code',resetPassword);
+
+router.get('/logout',logoutUser);
 
 module.exports = router;

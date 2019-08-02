@@ -7,7 +7,8 @@ const UserDataSchema=mongoose.Schema({
     password: String,
     isVerified: {type: Boolean, default: false},
     verificationToken: String,
-    passwordResetToken: String
+    passwordResetToken: String,
+    isLoggedIn:{type: Boolean, default:false}
 });
 
 
