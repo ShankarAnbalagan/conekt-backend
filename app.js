@@ -17,6 +17,9 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true},function(err,data)
     else console.log("Database connected");
 });
 
+app.set('views', path.join(__dirname,'views'));
+app.set('view engine', 'ejs');
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());

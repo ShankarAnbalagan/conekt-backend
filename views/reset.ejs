@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reset Password</title>
+  </head>
+  <body>
+    <h1>Reset Password</h1>
+    <form method="post" action="/users/set-new-password/<%=code%>">
+        <input type="text" name="password"/>
+        <input type="submit" value="submit"/>
+    </form>
+  </body>
+</html>
