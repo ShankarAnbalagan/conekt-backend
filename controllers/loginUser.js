@@ -18,28 +18,26 @@ module.exports=function(req,res,next){
             if(err)console.log("Login error----------->",err);
 
             if(isMatch){
+
                 userData.updateOne({
                     _id:user._id},{$set:{
                         isLoggedIn:true
                     }},function(err,data){
                         if(err) console.log(err);
+                        return (  
+                            res.status(200).json({
+                            "message":"Account Login Succesful",
+                            "data":{
+                                userName:user.userName,
+                                email:user.email,
+                                userToken:jwt.sign({
+                                    id:user._id
+                                },process.env.JWT_SECRET)
+                            }
+                        }));
                     });
-
-                return (                
-                    res.status(200).json({
-                    "message":"Account Login Succesful",
-                    "data":{
-                        userName:user.userName,
-                        email:user.email,
-                        userToken:jwt.sign({
-                            id:user._id
-                        },process.env.JWT_SECRET)
-                    }
-                })                
-                )
             }
-
-            return res.status(422).json({"message":"Email/UserName or Password Incorrect","data":{}});
+            else return res.status(422).json({"message":"Email/UserName or Password Incorrect","data":{}});
         });
 
 
