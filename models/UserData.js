@@ -8,7 +8,10 @@ const UserDataSchema=mongoose.Schema({
     isVerified: {type: Boolean, default: false},
     verificationToken: String,
     passwordResetToken: String,
-    isLoggedIn:{type: Boolean, default:false}
+    isLoggedIn:{type: Boolean, default:false},
+    profile:{profilePic:{type:String, default:"http://minecraftfaces.com/wp-content/bigfaces/big-sheep-face.png"},
+            bio:{type:String, default:"Hey there! I'm using Conekt"},
+            branch:String}
 });
 
 
