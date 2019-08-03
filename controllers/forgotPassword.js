@@ -1,6 +1,5 @@
 const UserData = require('./../models/UserData');
 const randomstring = require('randomstring');
-const bcrypt=require('bcrypt');
 const {sendMail}=require('./../utils/index');
 
 module.exports = function(req,res,next){
@@ -13,25 +12,42 @@ module.exports = function(req,res,next){
             }
             else{
                 if(user.passwordResetToken){
-                    res.status(200).json({message:"Password token already sent",data:{}});
+
+                    var[,timestamp]=user.passwordResetToken.split('.');
+
+                    if((Date.now()-timestamp*1)>(60*60*1000)){
+                                    UserData.updateOne({email},{$unset:{passwordResetToken:''}},function(err,user){
+                                        if(err) console.log(err);
+                                        else{
+                                            var resetToken=randomstring.generate()+"."+Date.now();
+                                UserData.updateOne({email},
+                                    {$set:{
+                                        passwordResetToken:resetToken
+                                    }
+                                },function(err,data){
+                                    if(err) console.log(err);
+                                    else{
+                                        sendMail.passwordReset(resetToken,email);
+                                        return res.status(200).json({message:"Password reset link sent",data:{}});                            
+                                    }
+                                });
+                            }
+
+                        })
+                        
+                    }else return res.status(200).json({message:"Password token already sent",data:{}});
                 }
                 else{
-                    console.log(user);
                     var resetToken=randomstring.generate()+"."+Date.now();
-                    bcrypt.hash(resetToken,5,function(err,hashedToken){
+                    UserData.updateOne({email},
+                        {$set:{
+                            passwordResetToken:resetToken
+                        }
+                    },function(err,data){
                         if(err) console.log(err);
                         else{
-                            UserData.updateOne({email},
-                                {$set:{
-                                    passwordResetToken:hashedToken
-                                }
-                            },function(err,data){
-                                if(err) console.log(err);
-                                else{
-                                    res.status(200).json({message:"Password reset link sent",data:{}});
-                                    sendMail.passwordReset(hashedToken,email);
-                                }
-                            });                            
+                            sendMail.passwordReset(resetToken,email);
+                            return res.status(200).json({message:"Password reset link sent",data:{}});                            
                         }
                     });
                 }

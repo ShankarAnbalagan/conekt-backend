@@ -5,6 +5,7 @@ var forgotPassword=require('./forgotPassword');
 var resetPassword=require('./resetPassword');
 var logoutUser = require('./logoutUser');
 var profile=require('./profile');
+var setNewPassword=require('./setNewPassword');
 
 module.exports={registerUser,
     accountVerification,
@@ -12,4 +13,5 @@ module.exports={registerUser,
     forgotPassword,
     resetPassword,
     logoutUser,
-    profile};
+    profile,
+    setNewPassword};

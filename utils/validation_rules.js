@@ -12,5 +12,10 @@ module.exports={
     },
     forgotPassword:{
         "email":"required|email"
+    },
+    posts:{
+        'opID':"required",
+        'postCategory':'required',
+        'text':'required|max:240'
     }
 };
