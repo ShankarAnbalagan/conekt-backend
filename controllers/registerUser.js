@@ -14,7 +14,7 @@ module.exports = function(req,res,next){
             if (err) return next(err);
       
             if (user) {
-              return res.status(200).json({
+              return res.status(422).json({
                 message: "User Name or Email Already Taken",
                 data: {}
               });
@@ -26,7 +26,7 @@ module.exports = function(req,res,next){
                     if(err) console.log("Registration error----------->",err);
                     else 
                     {
-                        res.status(200).json({"message": "User Successfully added", "data":{}});
+                        res.status(200).json({"message": "User successfully added", "data":{}});
                         sendMail.verification(req.body.verificationToken,req.body.email);
                     }
                 });

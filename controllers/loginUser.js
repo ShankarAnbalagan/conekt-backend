@@ -26,7 +26,7 @@ module.exports=function(req,res,next){
                         if(err) console.log(err);
                         return (  
                             res.status(200).json({
-                            "message":"Account Login Succesful",
+                            "message":"User Login Succesful",
                             "data":{
                                 userName:user.userName,
                                 email:user.email,

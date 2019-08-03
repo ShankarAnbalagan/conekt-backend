@@ -35,7 +35,7 @@ module.exports = function(req,res,next){
 
                         })
                         
-                    }else return res.status(200).json({message:"Password token already sent",data:{}});
+                    }else return res.status(200).json({message:"Password reset link already sent",data:{}});
                 }
                 else{
                     var resetToken=randomstring.generate()+"."+Date.now();

@@ -3,7 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "docs": "apidoc -i routes/ -o docs/"
+  },
+  "apidoc": {
+    "name": "Conekt API Docs",
+    "version": "0.0.0",
+    "description": "API documentation for Conekt",
+    "apidoc": {
+      "title": "conekt api",
+      "url": ""
+    }
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
