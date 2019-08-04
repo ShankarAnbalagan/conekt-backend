@@ -14,8 +14,8 @@ module.exports={
         "email":"required|email"
     },
     posts:{
-        'opID':"required",
-        'postCategory':'required',
+        "parentPost":"in:root,comment",
+        'postCategory':'required|in:accomodation,transport,sports,notes',
         'text':'required|max:240'
     }
 };

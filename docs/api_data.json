@@ -38,6 +38,96 @@
   },
   {
     "type": "post",
+    "url": "/posts/create-post",
+    "title": "Create a new post.",
+    "name": "create_post",
+    "group": "posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userToken",
+            "description": "<p>User's authentication token(In http header).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>Body(text) of the post.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "postCategory",
+            "description": "<p>Post's category.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parentPost",
+            "description": "<p>If post is main post or comment(set to root for main post | set to comment for comment).</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"Post successfully created\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/posts.js",
+    "groupTitle": "posts"
+  },
+  {
+    "type": "post",
     "url": "/users/forgot-password",
     "title": "Reset User password.",
     "name": "forgot_password",
