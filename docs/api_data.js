@@ -128,6 +128,82 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/posts/get-post",
+    "title": "Get existing posts.",
+    "name": "get_post",
+    "group": "posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userToken",
+            "description": "<p>User's authentication token(In http header).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "category",
+            "description": "<p>category of post.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"Post retreived successfully\",\n  \"data\": {...}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/posts.js",
+    "groupTitle": "posts"
+  },
+  {
+    "type": "post",
     "url": "/users/forgot-password",
     "title": "Reset User password.",
     "name": "forgot_password",
@@ -203,6 +279,75 @@ define({ "api": [
         {
           "title": "Error-Response:",
           "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"message\": \"Password reset link already sent\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "users"
+  },
+  {
+    "type": "get",
+    "url": "/users/get-profile",
+    "title": "Get user profile.",
+    "name": "get_profile",
+    "group": "users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userToken",
+            "description": "<p>User's authentication token(In http header).</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"User profile retrieved successfully\",\n  \"data\": {...}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}\n}",
           "type": "json"
         }
       ]

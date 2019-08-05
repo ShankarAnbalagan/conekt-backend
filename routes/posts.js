@@ -1,8 +1,9 @@
 const express = require('express');
 router=express.Router();
 
-const {createPost}=require('./../controllers/index');
-const {authenticator,validation_rules,validateRequest}=require('./../utils/index');
+const {createPost,getPosts}=require('./../controllers/index');
+const {validation_rules,validateRequest}=require('./../utils/index');
+const  {authenticator}=require('./../middleware/index');
 
 
 
@@ -36,5 +37,34 @@ const {authenticator,validation_rules,validateRequest}=require('./../utils/index
  *     }
  */
 router.post('/create-post',authenticator(),validateRequest(validation_rules.posts),createPost);
+
+/**
+ * @api {post} /posts/get-post Get existing posts.
+ * @apiName get-post
+ * @apiGroup posts
+ *
+ * @apiParam {String} userToken User's authentication token(In http header).
+ * @apiParam {String} category category of post.
+ *
+ * @apiSuccess {String} message Description of result of API.
+ * @apiSuccess {Object} data
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "Post retreived successfully",
+ *       "data": {...}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {}
+ *     }
+ */
+router.post('/get-posts',authenticator(),getPosts);
 
 module.exports=router;

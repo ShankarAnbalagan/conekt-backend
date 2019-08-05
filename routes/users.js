@@ -5,9 +5,10 @@ var {registerUser,
     forgotPassword,
     resetPassword,
     logoutUser,
-    profile,
+    getProfile,
     setNewPassword}=require('./../controllers/index');
-var {validateRequest,validation_rules,authenticator}=require('./../utils/index');
+var {validateRequest,validation_rules}=require('./../utils/index');
+var  {authenticator}=require('./../middleware/index');
 var router = express.Router();
 
 /**
@@ -190,7 +191,32 @@ router.get('/reset-password/',resetPassword);
 router.post('/set-new-password/:code',setNewPassword);
 
 
-
-router.get('/profile',authenticator,profile);
+/**
+ * @api {get} /users/get-profile Get user profile.
+ * @apiName get-profile
+ * @apiGroup users
+ *
+ * @apiParam {String} userToken User's authentication token(In http header).
+ *
+ * @apiSuccess {String} message Description of result of API.
+ * @apiSuccess {Object} data
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "User profile retrieved successfully",
+ *       "data": {...}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {}
+ *     }
+ */
+router.get('/profile',authenticator(),getProfile);
 
 module.exports = router;

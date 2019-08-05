@@ -2,9 +2,8 @@ var jwt=require('jsonwebtoken');
 var userData=require('./../models/UserData');
 
 module.exports=function(){
-
-    return function(req,res,next){
     
+    return function(req,res,next){
         if(req.headers.usertoken){
             
             jwt.verify(req.headers.usertoken,process.env.JWT_SECRET,
