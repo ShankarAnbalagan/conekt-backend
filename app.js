@@ -4,6 +4,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
 var cors=require('cors');
+var helmet=require('helmet');
+var compression=require('compression');
 
 dotenv.config();
 
@@ -26,6 +28,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
+app.use(compression());
 
 
 app.use('/', indexRouter);
