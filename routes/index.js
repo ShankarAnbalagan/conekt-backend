@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /**
- * @api {get} / 
+ * @api {get} https://conektapi.herokuapp.com/
  * @apiName server-status
  * @apiGroup index
  *

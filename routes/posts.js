@@ -8,7 +8,7 @@ const  {authenticator}=require('./../middleware/index');
 
 
 /**
- * @api {post} /posts/create-post Create a new post.
+ * @api {post} https://conektapi.herokuapp.com/posts/create-post Create a new post.
  * @apiName create-post
  * @apiGroup posts
  *
@@ -39,7 +39,7 @@ const  {authenticator}=require('./../middleware/index');
 router.post('/create-post',authenticator(),validateRequest(validation_rules.posts),createPost);
 
 /**
- * @api {post} /posts/get-post Get existing posts.
+ * @api {post} https://conektapi.herokuapp.com/posts/get-post Get existing posts.
  * @apiName get-post
  * @apiGroup posts
  *

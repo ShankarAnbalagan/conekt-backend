@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "docs": "apidoc -i routes/ -o docs/"
   },
   "apidoc": {
@@ -11,8 +11,8 @@
     "version": "0.0.0",
     "description": "API documentation for Conekt",
     "apidoc": {
-      "title": "conekt api",
-      "url": ""
+      "title": "conektapi",
+      "url": "https://conektapi.herokuapp.com/"
     }
   },
   "dependencies": {

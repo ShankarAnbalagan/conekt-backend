@@ -12,7 +12,7 @@ var  {authenticator}=require('./../middleware/index');
 var router = express.Router();
 
 /**
- * @api {post} /users/register Register new user.
+ * @api {post} https://conektapi.herokuapp.com/users/register Register new user.
  * @apiName register
  * @apiGroup users
  *
@@ -57,7 +57,7 @@ router.get('/verify',accountVerification);
 
 
 /**
- * @api {post} /users/login User log in.
+ * @api {post} https://conektapi.herokuapp.com/users/login User log in.
  * @apiName login
  * @apiGroup users
  *
@@ -108,7 +108,7 @@ router.post('/login',validateRequest(validation_rules.login),loginUser);
 
 
 /**
- * @api {post} /users/logout User log out.
+ * @api {post} https://conektapi.herokuapp.com/users/logout User log out.
  * @apiName logout
  * @apiGroup users
  *
@@ -138,7 +138,7 @@ router.get('/logout',logoutUser);
 
 
 /**
- * @api {post} /users/forgot-password Reset User password.
+ * @api {post} https://conektapi.herokuapp.com/users/forgot-password Reset User password.
  * @apiName forgot-password
  * @apiGroup users
  *
@@ -192,7 +192,7 @@ router.post('/set-new-password/:code',setNewPassword);
 
 
 /**
- * @api {get} /users/get-profile Get user profile.
+ * @api {get} https://conektapi.herokuapp.com/users/get-profile Get user profile.
  * @apiName get-profile
  * @apiGroup users
  *

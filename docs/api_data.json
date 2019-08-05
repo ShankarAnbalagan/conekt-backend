@@ -1,7 +1,7 @@
 [
   {
     "type": "get",
-    "url": "/",
+    "url": "https://conektapi.herokuapp.com/",
     "title": "",
     "name": "server_status",
     "group": "index",
@@ -38,7 +38,7 @@
   },
   {
     "type": "post",
-    "url": "/posts/create-post",
+    "url": "https://conektapi.herokuapp.com/posts/create-post",
     "title": "Create a new post.",
     "name": "create_post",
     "group": "posts",
@@ -128,7 +128,7 @@
   },
   {
     "type": "post",
-    "url": "/posts/get-post",
+    "url": "https://conektapi.herokuapp.com/posts/get-post",
     "title": "Get existing posts.",
     "name": "get_post",
     "group": "posts",
@@ -204,7 +204,7 @@
   },
   {
     "type": "post",
-    "url": "/users/forgot-password",
+    "url": "https://conektapi.herokuapp.com/users/forgot-password",
     "title": "Reset User password.",
     "name": "forgot_password",
     "group": "users",
@@ -289,7 +289,7 @@
   },
   {
     "type": "get",
-    "url": "/users/get-profile",
+    "url": "https://conektapi.herokuapp.com/users/get-profile",
     "title": "Get user profile.",
     "name": "get_profile",
     "group": "users",
@@ -358,7 +358,7 @@
   },
   {
     "type": "post",
-    "url": "/users/login",
+    "url": "https://conektapi.herokuapp.com/users/login",
     "title": "User log in.",
     "name": "login",
     "group": "users",
@@ -456,7 +456,7 @@
   },
   {
     "type": "post",
-    "url": "/users/logout",
+    "url": "https://conektapi.herokuapp.com/users/logout",
     "title": "User log out.",
     "name": "logout",
     "group": "users",
@@ -525,7 +525,7 @@
   },
   {
     "type": "post",
-    "url": "/users/register",
+    "url": "https://conektapi.herokuapp.com/users/register",
     "title": "Register new user.",
     "name": "register",
     "group": "users",
