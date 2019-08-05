@@ -12,6 +12,8 @@ module.exports=function(req,res,next){
             return res.status(422).json({"message":"User does not exist","data":{}});
         }
 
+        if(user.isLoggedIn) return res.status(422).json({"message":"User is already logged in","data":{}});
+
         if(!user.isVerified) return res.status(422).json({"message":"User is not verified","data":{}});
 
         user.comparePassword(password,function(err,isMatch){
