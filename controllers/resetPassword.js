@@ -5,8 +5,7 @@ module.exports=function(req,res,next){
     var [token,timestamp]=code.split('.');
 
 
-    UserData.findOne({passwordResetToken:token},function(err,user){
-        console.log(user);
+    UserData.findOne({passwordResetToken:code},function(err,user){
         if(err) console.log(err);
         else{
             if(user){

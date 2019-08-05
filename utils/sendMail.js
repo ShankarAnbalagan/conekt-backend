@@ -15,7 +15,7 @@ module.exports={verification:
                     to: email,
                     subject: "Verify your e-mail address",
                     html: `<h2>Welcome to Conekt</h2><h2>Click the link below to verify your e-mail</h2>
-                    <a href='http://localhost:3000/users/verify?code=${verificationToken}'>Verify e-mail</p>`
+                    <a href='https://conektapi.herokuapp.com/users/verify?code=${verificationToken}'>Verify e-mail</p>`
                 },
                 function(err,data){
                     if(err) console.log("Error while sending verification email------>", err);
@@ -39,7 +39,7 @@ module.exports={verification:
                     to: email,
                     subject: "Reset Password",
                     html: `<h2>Hey, it's alright. People forget a lot of stuff.</h2><h2>Click the link below to reset your password</h2>
-                    <a href='http://localhost:3000/users/reset-password?code=${passwordResetToken}'>Reset Password</a><br>
+                    <a href='https://conektapi.herokuapp.com/users/reset-password?code=${passwordResetToken}'>Reset Password</a><br>
                     <p>This link is valid for one hour only</p>`
                 },
                 function(err,data){

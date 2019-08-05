@@ -3,7 +3,6 @@ var bcrypt=require('bcrypt');
 
 module.exports=function(req,res,next){
     var [token,timestamp]=(req.params.code).split('.');
-    console.log(token);
     var password=req.body.password;
 
 
@@ -18,7 +17,7 @@ module.exports=function(req,res,next){
         bcrypt.hash(password,10,function(err,hashedPassword){
             if(err) console.log(err);
             else{
-                UserData.updateOne({passwordResetToken:token},{
+                UserData.updateOne({passwordResetToken:req.params.code},{
                     $set:{
                         password:hashedPassword
                     },
@@ -26,7 +25,6 @@ module.exports=function(req,res,next){
                     passwordResetToken:''
                 }},
                 function(err,user){
-                    console.log(user);
                     if(err) console.log(err);
                     else{
                         if(user.n==0){
