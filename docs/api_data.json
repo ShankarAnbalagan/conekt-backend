@@ -550,7 +550,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "profile.branch",
+            "field": "branch",
             "description": "<p>User's branch/department</p>"
           },
           {

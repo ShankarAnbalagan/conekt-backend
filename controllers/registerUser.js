@@ -21,7 +21,7 @@ module.exports = function(req,res,next){
             }
             else{
                 req.body.verificationToken=randomString.generate();
-
+                req.body['profile.branch']=req.body.branch;
                 UserData.create(req.body,function(err,data){
                     if(err) console.log("Registration error----------->",err);
                     else 
