@@ -18,6 +18,7 @@ var router = express.Router();
  *
  * @apiParam {String} userName User's unique username.
  * @apiParam {String} email User's unique email ID.
+ * @apiParam {String} profile.branch User's branch/department
  * @apiParam {String} password Users unique ID(Min 8 characters).
  *
  * @apiSuccess {String} message Description of result of API.

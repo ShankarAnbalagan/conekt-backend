@@ -2,7 +2,8 @@ module.exports = {
   apps : [{
     name: 'conektapi',
     script: 'bin/www',
-    instances: "max",
+    instances: 1,
+    watch: true,
     autorestart: true,
     env: {
       NODE_ENV: 'development'

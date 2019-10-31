@@ -550,6 +550,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "profile.branch",
+            "description": "<p>User's branch/department</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>Users unique ID(Min 8 characters).</p>"
           }
