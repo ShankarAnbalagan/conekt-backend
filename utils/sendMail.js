@@ -3,18 +3,15 @@ var nodemailer = require('nodemailer');
 module.exports={verification: 
         function(verificationToken,email){
             var transporter=nodemailer.createTransport({
-                service: 'gmail',
-                host: 'smtp.gmail.com',
-                port: 465,
-                secure: true,
+                host: 'in-v3.mailjet.com',
                 auth: {
-                    user: process.env.SMTP_USER,
-                    pass: process.env.SMTP_PASS
+                    user: "fce1423a3f58ca0d2ea5471b30fc81e3",
+                    pass: "d5b7255fd1007030aba3443e8d57f0dc"
                 }
             });
 
             transporter.sendMail({
-                    from: '"Admin Panda 🐼" <verify-bot@conekt-admin.com>',
+                    from: '"Admin Panda 🐼" <alternative.accnt7@gmail.com>',
                     to: email,
                     subject: "Verify your e-mail address",
                     html: `<h2>Welcome to Conekt</h2><h2>Click the link below to verify your e-mail</h2>
