@@ -6,7 +6,8 @@ var {registerUser,
     resetPassword,
     logoutUser,
     getProfile,
-    setNewPassword}=require('./../controllers/index');
+    setNewPassword,
+    auth}=require('./../controllers/index');
 var {validateRequest,validation_rules}=require('./../utils/index');
 var  {authenticator}=require('./../middleware/index');
 var router = express.Router();
@@ -219,5 +220,8 @@ router.post('/set-new-password/:code',setNewPassword);
  *     }
  */
 router.get('/profile',authenticator(),getProfile);
+
+
+router.get('/auth/:token',auth)
 
 module.exports = router;
