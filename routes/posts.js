@@ -12,7 +12,7 @@ const  {authenticator}=require('./../middleware/index');
  * @apiName create-post
  * @apiGroup posts
  *
- * @apiParam {String} userToken User's authentication token(In http header).
+ * @apiParam {String} userToken User's authentication token.
  * @apiParam {String} text Body(text) of the post.
  * @apiParam {String} postCategory Post's category.
  * @apiParam {String} parentPost If post is main post or comment(set to root for main post | set to comment for comment).
@@ -43,7 +43,7 @@ router.post('/create-post',authenticator(),validateRequest(validation_rules.post
  * @apiName get-post
  * @apiGroup posts
  *
- * @apiParam {String} userToken User's authentication token(In http header).
+ * @apiParam {String} userToken User's authentication token.
  * @apiParam {String} category category of post.
  *
  * @apiSuccess {String} message Description of result of API.

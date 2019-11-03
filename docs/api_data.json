@@ -50,7 +50,7 @@
             "type": "String",
             "optional": false,
             "field": "userToken",
-            "description": "<p>User's authentication token(In http header).</p>"
+            "description": "<p>User's authentication token.</p>"
           },
           {
             "group": "Parameter",
@@ -140,7 +140,7 @@
             "type": "String",
             "optional": false,
             "field": "userToken",
-            "description": "<p>User's authentication token(In http header).</p>"
+            "description": "<p>User's authentication token.</p>"
           },
           {
             "group": "Parameter",
@@ -288,8 +288,8 @@
     "groupTitle": "users"
   },
   {
-    "type": "get",
-    "url": "https://conektapi.herokuapp.com/users/get-profile/:token",
+    "type": "post",
+    "url": "https://conektapi.herokuapp.com/users/profile/:token",
     "title": "Get user profile.",
     "name": "get_profile",
     "group": "users",
@@ -300,8 +300,8 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "token",
-            "description": "<p>User's authentication token(In http header).</p>"
+            "field": "usertoken",
+            "description": "<p>User's authentication token.</p>"
           }
         ]
       }

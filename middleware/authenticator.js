@@ -4,9 +4,9 @@ var userData=require('./../models/UserData');
 module.exports=function(){
     
     return function(req,res,next){
-        if(req.headers.usertoken){
+        if(req.body.usertoken){
             
-            jwt.verify(req.headers.usertoken,process.env.JWT_SECRET,
+            jwt.verify(req.body.usertoken,process.env.JWT_SECRET,
                 function(err,user){
                     if(err) console.log(err);
                     else{
