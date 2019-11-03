@@ -128,7 +128,7 @@
   },
   {
     "type": "post",
-    "url": "https://conektapi.herokuapp.com/posts/get-post",
+    "url": "https://conektapi.herokuapp.com/posts/get-posts",
     "title": "Get existing posts.",
     "name": "get_post",
     "group": "posts",
@@ -139,7 +139,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "userToken",
+            "field": "usertoken",
             "description": "<p>User's authentication token.</p>"
           },
           {

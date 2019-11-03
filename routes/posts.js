@@ -39,11 +39,11 @@ const  {authenticator}=require('./../middleware/index');
 router.post('/create-post',authenticator(),validateRequest(validation_rules.posts),createPost);
 
 /**
- * @api {post} https://conektapi.herokuapp.com/posts/get-post Get existing posts.
+ * @api {post} https://conektapi.herokuapp.com/posts/get-posts Get existing posts.
  * @apiName get-post
  * @apiGroup posts
  *
- * @apiParam {String} userToken User's authentication token.
+ * @apiParam {String} usertoken User's authentication token.
  * @apiParam {String} category category of post.
  *
  * @apiSuccess {String} message Description of result of API.
