@@ -2,7 +2,7 @@ const UserData=require('./../models/UserData');
 const jwt = require('jsonwebtoken');
 
 module.exports= function(req,res,next){
-        jwt.verify(req.headers.usertoken,process.env.JWT_SECRET,
+        jwt.verify(req.params.token,process.env.JWT_SECRET,
         function(err,data){
             if(err) console.log(err);
             else {

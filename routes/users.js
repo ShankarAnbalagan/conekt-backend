@@ -110,11 +110,11 @@ router.post('/login',validateRequest(validation_rules.login),loginUser);
 
 
 /**
- * @api {post} https://conektapi.herokuapp.com/users/logout User log out.
+ * @api {get} https://conektapi.herokuapp.com/users/logout/:token User log out.
  * @apiName logout
  * @apiGroup users
  *
- * @apiParam {String} userToken User's authentication token.
+ * @apiParam {String} token User's authentication token.
  *
  * @apiSuccess {String} message Description of result of API.
  * @apiSuccess {Object} data
@@ -135,7 +135,7 @@ router.post('/login',validateRequest(validation_rules.login),loginUser);
  *       "data": {}
  *     }
  */
-router.get('/logout',logoutUser);
+router.get('/logout/:token',logoutUser);
 
 
 
