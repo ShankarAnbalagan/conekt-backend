@@ -194,11 +194,11 @@ router.post('/set-new-password/:code',setNewPassword);
 
 
 /**
- * @api {get} https://conektapi.herokuapp.com/users/get-profile Get user profile.
+ * @api {get} https://conektapi.herokuapp.com/users/get-profile/:token Get user profile.
  * @apiName get-profile
  * @apiGroup users
  *
- * @apiParam {String} userToken User's authentication token(In http header).
+ * @apiParam {String} token User's authentication token(In http header).
  *
  * @apiSuccess {String} message Description of result of API.
  * @apiSuccess {Object} data
@@ -219,7 +219,7 @@ router.post('/set-new-password/:code',setNewPassword);
  *       "data": {}
  *     }
  */
-router.get('/profile',authenticator(),getProfile);
+router.get('/profile/:token',authenticator(),getProfile);
 
 
 router.get('/auth/:token',auth)

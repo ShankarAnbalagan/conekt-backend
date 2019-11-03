@@ -289,7 +289,7 @@
   },
   {
     "type": "get",
-    "url": "https://conektapi.herokuapp.com/users/get-profile",
+    "url": "https://conektapi.herokuapp.com/users/get-profile/:token",
     "title": "Get user profile.",
     "name": "get_profile",
     "group": "users",
@@ -300,7 +300,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "userToken",
+            "field": "token",
             "description": "<p>User's authentication token(In http header).</p>"
           }
         ]
