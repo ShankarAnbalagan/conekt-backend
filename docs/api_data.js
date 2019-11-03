@@ -455,8 +455,8 @@ define({ "api": [
     "groupTitle": "users"
   },
   {
-    "type": "post",
-    "url": "https://conektapi.herokuapp.com/users/logout",
+    "type": "get",
+    "url": "https://conektapi.herokuapp.com/users/logout/:token",
     "title": "User log out.",
     "name": "logout",
     "group": "users",
@@ -467,7 +467,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "userToken",
+            "field": "token",
             "description": "<p>User's authentication token.</p>"
           }
         ]
