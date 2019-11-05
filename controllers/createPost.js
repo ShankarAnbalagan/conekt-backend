@@ -3,7 +3,7 @@ const UserData = require('./../models/UserData');
 const jwt = require('jsonwebtoken');
 
 module.exports=function(req,res,next){
-    var token=req.headers.usertoken;
+    var token=req.body.usertoken;
     jwt.verify(token,process.env.JWT_SECRET,
         function(err,verifiedToken){
             if(err) console.log("Verification error---->",err);
