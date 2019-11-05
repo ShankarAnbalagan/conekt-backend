@@ -49,7 +49,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "usertoken",
+            "field": "userToken",
             "description": "<p>User's authentication token.</p>"
           },
           {
