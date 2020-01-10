@@ -9,6 +9,7 @@ var setNewPassword=require('./setNewPassword');
 var createPost = require('./createPost');
 var getPosts=require('./getPosts');
 var auth=require('./auth')
+var deletePost=require('./deletePosts');
 
 module.exports={registerUser,
     accountVerification,
@@ -20,4 +21,5 @@ module.exports={registerUser,
     setNewPassword,
     createPost,
     getPosts,
-    auth};
+    auth,
+    deletePost};

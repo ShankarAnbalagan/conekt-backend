@@ -1,7 +1,7 @@
 const express = require('express');
 router=express.Router();
 
-const {createPost,getPosts}=require('./../controllers/index');
+const {createPost,getPosts,deletePost}=require('./../controllers/index');
 const {validation_rules,validateRequest}=require('./../utils/index');
 const  {authenticator}=require('./../middleware/index');
 
@@ -66,5 +66,7 @@ router.post('/create-post',authenticator(),validateRequest(validation_rules.post
  *     }
  */
 router.post('/get-posts',authenticator(),getPosts);
+
+router.post('/delete-post/',authenticator(),deletePost);
 
 module.exports=router;
