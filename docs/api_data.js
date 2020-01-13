@@ -57,7 +57,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "text",
-            "description": "<p>Body(text) of the post.</p>"
+            "description": "<p>Body(text) of the comment.</p>"
           },
           {
             "group": "Parameter",
@@ -71,7 +71,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "postCategory",
-            "description": "<p>Post's category.</p>"
+            "description": "<p>comment's category.</p>"
           }
         ]
       }
@@ -212,7 +212,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "https://conektapi.herokuapp.com/posts/delete-post",
-    "title": "Get existing posts.",
+    "title": "Delete a post.",
     "name": "delete-post",
     "group": "posts",
     "parameter": {
