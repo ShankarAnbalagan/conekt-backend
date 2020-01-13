@@ -68,7 +68,7 @@ router.post('/get-posts',authenticator(),getPosts);
 
 
 /**
- * @api {post} https://conektapi.herokuapp.com/posts/delete-post Get existing posts.
+ * @api {post} https://conektapi.herokuapp.com/posts/delete-post Delete a post.
  * @apiName delete-post
  * @apiGroup posts
  *
@@ -102,9 +102,9 @@ router.post('/delete-post',authenticator(),deletePost);
  * @apiGroup posts
  *
  * @apiParam {String} userToken User's authentication token.
- * @apiParam {String} text Body(text) of the post.
+ * @apiParam {String} text Body(text) of the comment.
  * @apiParam {String} parentPostId Id of parent post.
- * @apiParam {String} postCategory Post's category.
+ * @apiParam {String} postCategory comment's category.
  *
  * @apiSuccess {String} message Description of result of API.
  * @apiSuccess {Object} data
