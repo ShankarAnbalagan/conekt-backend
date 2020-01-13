@@ -10,6 +10,8 @@ var createPost = require('./createPost');
 var getPosts=require('./getPosts');
 var auth=require('./auth')
 var deletePost=require('./deletePosts');
+var createComment=require('./createComment');
+var getComments=require('./getComments');
 
 module.exports={registerUser,
     accountVerification,
@@ -22,4 +24,6 @@ module.exports={registerUser,
     createPost,
     getPosts,
     auth,
-    deletePost};
+    deletePost,
+    createComment,
+    getComments};

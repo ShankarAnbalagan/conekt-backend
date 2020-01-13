@@ -16,7 +16,8 @@ module.exports=function(req,res,next){
                         Posts.create({opID:userId,
                             opName:user.userName,
                             postCategory:req.body.postCategory,
-                            parentPost:"root",
+                            parentPost:"comment",
+                            parentPostId:req.body.parentPostId,
                             text:req.body.text,
                             timeCreated:Date.now(),
                             displayTime:Date()
