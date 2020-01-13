@@ -15,7 +15,6 @@ const  {authenticator}=require('./../middleware/index');
  * @apiParam {String} userToken User's authentication token.
  * @apiParam {String} text Body(text) of the post.
  * @apiParam {String} postCategory Post's category.
- * @apiParam {String} parentPost If post is main post or comment(set to root for main post | set to comment for comment).
  *
  * @apiSuccess {String} message Description of result of API.
  * @apiSuccess {Object} data
@@ -67,10 +66,93 @@ router.post('/create-post',authenticator(),validateRequest(validation_rules.post
  */
 router.post('/get-posts',authenticator(),getPosts);
 
+
+/**
+ * @api {post} https://conektapi.herokuapp.com/posts/delete-post Get existing posts.
+ * @apiName delete-post
+ * @apiGroup posts
+ *
+ * @apiParam {String} usertoken User's authentication token.
+ * @apiParam {String} postId Id of the post to delete.
+ *
+ * @apiSuccess {String} message Description of result of API.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "Post deleted successfully",
+ *       "data": {...}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {}
+ *     }
+ */
 router.post('/delete-post',authenticator(),deletePost);
 
+
+/**
+ * @api {post} https://conektapi.herokuapp.com/posts/create-comment Create a new comment.
+ * @apiName create-comment
+ * @apiGroup posts
+ *
+ * @apiParam {String} userToken User's authentication token.
+ * @apiParam {String} text Body(text) of the post.
+ * @apiParam {String} parentPostId Id of parent post.
+ * @apiParam {String} postCategory Post's category.
+ *
+ * @apiSuccess {String} message Description of result of API.
+ * @apiSuccess {Object} data
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "Comment successfully created",
+ *       "data": {}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {} 
+ */
 router.post('/create-comment',authenticator(),createComment);
 
+/**
+ * @api {post} https://conektapi.herokuapp.com/posts/get-comments Get comments for post.
+ * @apiName get-comment
+ * @apiGroup posts
+ *
+ * @apiParam {String} usertoken User's authentication token.
+ * @apiParam {String} parentPostId Id of parent post.
+ *
+ * @apiSuccess {String} message Description of result of API.
+ * @apiSuccess {Object} data
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "Comment retreived successfully",
+ *       "data": {...}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {}
+ *     }
+ */
 router.post('/get-comments',authenticator(),getComments);
 
 module.exports=router;

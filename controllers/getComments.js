@@ -8,7 +8,7 @@ module.exports=function(req,res,next){
     // }
 
 
-    Posts.find({postPostId:req.body.parentpostid}).sort('-timeCreated').exec(function(err,results){
+    Posts.find({postPostId:req.body.parentPostId}).sort('-timeCreated').exec(function(err,results){
         if(err)console.log(err);
         else{
             if(results.length===0)

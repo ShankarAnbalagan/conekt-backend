@@ -3,7 +3,7 @@
     "type": "get",
     "url": "https://conektapi.herokuapp.com/",
     "title": "",
-    "name": "server_status",
+    "name": "server-status",
     "group": "index",
     "success": {
       "fields": {
@@ -38,9 +38,99 @@
   },
   {
     "type": "post",
+    "url": "https://conektapi.herokuapp.com/posts/create-comment",
+    "title": "Create a new comment.",
+    "name": "create-comment",
+    "group": "posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userToken",
+            "description": "<p>User's authentication token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "text",
+            "description": "<p>Body(text) of the post.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parentPostId",
+            "description": "<p>Id of parent post.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "postCategory",
+            "description": "<p>Post's category.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"Comment successfully created\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/posts.js",
+    "groupTitle": "posts"
+  },
+  {
+    "type": "post",
     "url": "https://conektapi.herokuapp.com/posts/create-post",
     "title": "Create a new post.",
-    "name": "create_post",
+    "name": "create-post",
     "group": "posts",
     "parameter": {
       "fields": {
@@ -65,13 +155,6 @@
             "optional": false,
             "field": "postCategory",
             "description": "<p>Post's category.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "parentPost",
-            "description": "<p>If post is main post or comment(set to root for main post | set to comment for comment).</p>"
           }
         ]
       }
@@ -128,9 +211,154 @@
   },
   {
     "type": "post",
+    "url": "https://conektapi.herokuapp.com/posts/delete-post",
+    "title": "Get existing posts.",
+    "name": "delete-post",
+    "group": "posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "usertoken",
+            "description": "<p>User's authentication token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "postId",
+            "description": "<p>Id of the post to delete.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"Post deleted successfully\",\n  \"data\": {...}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/posts.js",
+    "groupTitle": "posts"
+  },
+  {
+    "type": "post",
+    "url": "https://conektapi.herokuapp.com/posts/get-comments",
+    "title": "Get comments for post.",
+    "name": "get-comment",
+    "group": "posts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "usertoken",
+            "description": "<p>User's authentication token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "parentPostId",
+            "description": "<p>Id of parent post.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Description of result of API.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"meassage\": \"Comment retreived successfully\",\n  \"data\": {...}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidDataError",
+            "description": "<p>Invalid data passed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n{\n  \"meassage\": \"Appropriate error message\",\n  \"data\": {}\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/posts.js",
+    "groupTitle": "posts"
+  },
+  {
+    "type": "post",
     "url": "https://conektapi.herokuapp.com/posts/get-posts",
     "title": "Get existing posts.",
-    "name": "get_post",
+    "name": "get-post",
     "group": "posts",
     "parameter": {
       "fields": {
@@ -206,7 +434,7 @@
     "type": "post",
     "url": "https://conektapi.herokuapp.com/users/forgot-password",
     "title": "Reset User password.",
-    "name": "forgot_password",
+    "name": "forgot-password",
     "group": "users",
     "parameter": {
       "fields": {
@@ -291,7 +519,7 @@
     "type": "post",
     "url": "https://conektapi.herokuapp.com/users/profile/:token",
     "title": "Get user profile.",
-    "name": "get_profile",
+    "name": "get-profile",
     "group": "users",
     "parameter": {
       "fields": {
