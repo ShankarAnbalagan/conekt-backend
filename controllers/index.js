@@ -12,6 +12,7 @@ var auth=require('./auth')
 var deletePost=require('./deletePosts');
 var createComment=require('./createComment');
 var getComments=require('./getComments');
+var editProfile=require('./editProfile');
 
 module.exports={registerUser,
     accountVerification,
@@ -26,4 +27,5 @@ module.exports={registerUser,
     auth,
     deletePost,
     createComment,
-    getComments};
+    getComments,
+    editProfile};

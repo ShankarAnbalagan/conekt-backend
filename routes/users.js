@@ -7,7 +7,8 @@ var {registerUser,
     logoutUser,
     getProfile,
     setNewPassword,
-    auth}=require('./../controllers/index');
+    auth,
+    editProfile}=require('./../controllers/index');
 var {validateRequest,validation_rules}=require('./../utils/index');
 var  {authenticator}=require('./../middleware/index');
 var router = express.Router();
@@ -221,6 +222,35 @@ router.post('/set-new-password/:code',setNewPassword);
  */
 router.post('/profile',authenticator(),getProfile);
 
+/**
+ * @api {post} https://conektapi.herokuapp.com/users/edit-profile Edit user profile.
+ * @apiName edit-profile
+ * @apiGroup users
+ *
+ * @apiParam {String} usertoken User's authentication token.
+ * @apiParam {String} newUserName User's new username.
+ * @apiParam {String} newBio User's new bio.
+ *
+ * @apiSuccess {String} message Description of result of API.
+ * @apiSuccess {Object} data
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "meassage": "User profile edited successfully",
+ *       "data": {...}
+ *     }
+ *
+ * @apiError InvalidDataError Invalid data passed.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 422 Unprocessable Entity
+ *     {
+ *       "meassage": "Appropriate error message",
+ *       "data": {}
+ *     }
+ */
+router.post('/edit-profile',authenticator(),editProfile);
 
 router.get('/auth/:token',auth)
 
