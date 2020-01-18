@@ -5,7 +5,7 @@ module.exports=function(req,res,next){
     jwt.verify(req.body.usertoken,process.env.JWT_SECRET, function (err, token) {
         if(err) console.log("err-->"+err);
         else{
-            users.updateOne({_id:token.id},{userName:req.body.newUserName, 'profile.branch':req.body.newBio},
+            users.updateOne({_id:token.id},{userName:req.body.newUserName, 'profile.bio':req.body.newBio},
             function(err,data){
                 if(err) console.log("err-->"+err);
                 {
