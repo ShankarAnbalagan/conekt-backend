@@ -3,12 +3,14 @@ var nodemailer = require('nodemailer');
 module.exports={verification: 
         function(verificationToken,email){
             var transporter=nodemailer.createTransport({
-                host: "smtp.mailtrap.io",
-                    port: 2525,
-                    auth: {
-                        user: "3ded76a62afedb",
-                        pass: "bd3178f9f11ce3"
-                    }
+                pool: true,
+                host: 'smtp.gmail.com',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: 'conekt.bot@gmail.com',
+                    pass: 'conektbot123'
+                }
             });
 
             transporter.sendMail({
@@ -28,10 +30,13 @@ module.exports={verification:
         passwordReset:
         function(passwordResetToken,email){
             var transporter=nodemailer.createTransport({
-                service: 'gmail',
+                pool: true,
+                host: 'smtp.gmail.com',
+                port: 465,
+                secure: true,
                 auth: {
-                    user: process.env.SMTP_USER,
-                    pass: process.env.SMTP_PASS
+                    user: 'conekt.bot@gmail.com',
+                    pass: 'conektbot123'
                 }
             });
 
